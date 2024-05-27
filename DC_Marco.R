@@ -18,3 +18,10 @@ df$Sales.Ratio[df$Sales.Ratio>quantile(df$Sales.Ratio,0.99999,na.rm=TRUE)]
 df$Assessed.Value[df$Assessed.Value>quantile(df$Assessed.Value,0.99999,na.rm=TRUE)]<-NA
 df$Sale.Amount[df$Sale.Amount>quantile(df$Sale.Amount,0.99999,na.rm=TRUE)]<-NA
 df$Sales.Ratio[df$Sales.Ratio>quantile(df$Sales.Ratio,0.99999,na.rm=TRUE)]<-NA
+
+
+#Elimina las columnas Date.Recorded, Town, Address, Longitude y Latitude y esribe lo necesario para 
+#que el script devuelva el df en un csv denominado “DF_DC_1.csv” 
+df<-df[,-c(1,3,4)]
+
+write.csv(df, file = "C:/Users/marco/OneDrive/Documentos/Examen r04 prueba/dataframeR04.csv", row.names = FALSE)
