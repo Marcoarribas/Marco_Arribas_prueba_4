@@ -26,3 +26,20 @@ df$Date.Recorded<-as.Date(df$Date.Recorded)
 
 #¿Cuántos tipos residenciales diferentes hay? 
 length(unique(df$Property.Type))
+
+
+
+
+#temporalidad de los datos
+range(df$List.Year)
+
+
+#¿De medía, cuál es el ratio entre el precio real y el precio tasado por tipo de propiedad de las viviendas
+#cuyo precio tasado y real es distinto de 0?
+df %>% group_by(Property.Type) %>%filter(Assessed.Value != 0 & Sale.Amount != 0) %>% 
+  summarise(ratio_precio = mean(Sales.Ratio, na.rm = TRUE))
+
+
+
+
+
